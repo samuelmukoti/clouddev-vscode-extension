@@ -205,7 +205,10 @@
     "watch": "tsc -watch -p ./",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
-    "package": "vsce package"
+    "package": "vsce package",
+    "publish": "bash scripts/publish.sh",
+    "publish:vsce": "bash scripts/publish.sh --vsce-only",
+    "publish:ovsx": "bash scripts/publish.sh --ovsx-only"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
