@@ -1,0 +1,157 @@
+{
+  "name": "clouddev-helper",
+  "displayName": "CloudDev Helper",
+  "description": "Run and preview mobile apps (Flutter, Expo) on cloud-based Android emulators via noVNC",
+  "version": "0.1.0",
+  "publisher": "clouddev",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Debuggers"
+  ],
+  "keywords": [
+    "flutter",
+    "expo",
+    "react-native",
+    "android",
+    "emulator",
+    "noVNC",
+    "cloud",
+    "code-server",
+    "maestro",
+    "testing",
+    "automation"
+  ],
+  "activationEvents": [
+    "workspaceContains:.clouddev.json"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "clouddev.startEmulator",
+        "title": "CloudDev: Start Android Emulator",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.openEmulatorView",
+        "title": "CloudDev: Open Emulator View",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.runFlutterApp",
+        "title": "CloudDev: Run Flutter App",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.runExpoApp",
+        "title": "CloudDev: Run Expo App",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.stopEmulator",
+        "title": "CloudDev: Stop Emulator",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.runMaestroFlow",
+        "title": "CloudDev: Run Maestro Flow",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.runAllMaestroFlows",
+        "title": "CloudDev: Run All Maestro Flows",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.takeScreenshot",
+        "title": "CloudDev: Take Screenshot",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.newMaestroFlow",
+        "title": "CloudDev: New Maestro Flow",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.installMaestro",
+        "title": "CloudDev: Install Maestro",
+        "category": "CloudDev"
+      }
+    ],
+    "configuration": {
+      "title": "CloudDev",
+      "properties": {
+        "clouddev.preview.emulator.urlTemplate": {
+          "type": "string",
+          "default": "http://localhost:%PORT%%PATH%",
+          "description": "URL template for emulator (noVNC) preview. Use %PORT% for port and %PATH% for the path from .clouddev.json."
+        }
+      }
+    },
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "clouddev.startEmulator",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "clouddev.openEmulatorView",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "clouddev.runFlutterApp",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "clouddev.runExpoApp",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "clouddev.stopEmulator",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "clouddev.runMaestroFlow",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "clouddev.runAllMaestroFlows",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "clouddev.takeScreenshot",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "clouddev.newMaestroFlow",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "clouddev.installMaestro"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "@vscode/test-electron": "^2.3.8",
+    "@vscode/vsce": "^2.22.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.0"
+  }
+}

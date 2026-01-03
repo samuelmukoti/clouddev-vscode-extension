@@ -1,0 +1,14 @@
+{
+  "flutter": {
+    "runCommand": "flutter run -d emulator-5554"
+  },
+  "expo": {
+    "runCommand": "npx expo run:android",
+    "startCommand": "npx expo start"
+  },
+  "emulator": {
+    "startCommand": "bash scripts/start_emulator.sh",
+    "port": 6080,
+    "path": "/vnc.html?autoconnect=1"
+  }
+}

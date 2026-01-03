@@ -25,3 +25,11 @@ coordination/orchestration/*
 claude-flow
 # Removed Windows wrapper files per user request
 hive-mind-prompt-*.txt
+
+# VS Code Extension
+out/
+dist/
+node_modules/
+.vscode-test/
+*.vsix
+.DS_Store

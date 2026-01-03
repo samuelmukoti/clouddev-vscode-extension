@@ -1,0 +1,28 @@
+{
+  "name": "@clouddev/coordinator",
+  "version": "0.1.0",
+  "description": "CloudDev Runner Coordinator - Manages remote runner connections",
+  "main": "dist/index.js",
+  "bin": {
+    "clouddev-coordinator": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "dev": "ts-node src/cli.ts"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.16.0",
+    "uuid": "^9.0.0",
+    "nanoid": "^3.3.7"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "@types/ws": "^8.5.10",
+    "@types/uuid": "^9.0.7",
+    "typescript": "^5.3.0",
+    "ts-node": "^10.9.2"
+  }
+}

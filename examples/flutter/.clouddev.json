@@ -1,0 +1,16 @@
+{
+  "flutter": {
+    "runCommand": "flutter run -d emulator-5554"
+  },
+  "emulator": {
+    "startCommand": "bash scripts/start_emulator.sh",
+    "port": 6080,
+    "path": "/vnc.html?autoconnect=1"
+  },
+  "maestro": {
+    "flowsDir": ".clouddev/flows",
+    "screenshotsDir": ".clouddev/screenshots",
+    "reportsDir": ".clouddev/reports",
+    "deviceId": "emulator-5554"
+  }
+}
