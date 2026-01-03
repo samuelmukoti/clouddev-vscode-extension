@@ -1,29 +1,52 @@
 {
   "name": "clouddev-helper",
   "displayName": "CloudDev Helper",
-  "description": "Run and preview mobile apps (Flutter, Expo) on cloud-based Android emulators via noVNC",
-  "version": "0.1.0",
-  "publisher": "clouddev",
-  "license": "MIT",
+  "description": "Run and preview mobile apps (Flutter, Expo) on cloud-based Android emulators via noVNC with remote runner support",
+  "version": "0.2.0",
+  "publisher": "melivo",
+  "author": {
+    "name": "Samuel Mukoti",
+    "email": "sam@melivo.com",
+    "url": "https://www.melivo.com"
+  },
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samuelmukoti/clouddev-vscode-extension"
+  },
+  "homepage": "https://www.melivo.com",
+  "bugs": {
+    "url": "https://github.com/samuelmukoti/clouddev-vscode-extension/issues"
+  },
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#667eea",
+    "theme": "dark"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
     "Other",
-    "Debuggers"
+    "Debuggers",
+    "Testing"
   ],
   "keywords": [
     "flutter",
     "expo",
     "react-native",
     "android",
+    "ios",
     "emulator",
+    "simulator",
     "noVNC",
     "cloud",
     "code-server",
     "maestro",
     "testing",
-    "automation"
+    "automation",
+    "remote",
+    "mobile"
   ],
   "activationEvents": [
     "workspaceContains:.clouddev.json"
@@ -80,6 +103,36 @@
         "command": "clouddev.installMaestro",
         "title": "CloudDev: Install Maestro",
         "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.openRunnerDashboard",
+        "title": "CloudDev: Open Runner Dashboard",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.addRemoteRunner",
+        "title": "CloudDev: Add Remote Runner",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.listRemoteRunners",
+        "title": "CloudDev: List Remote Runners",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.remoteScreenshot",
+        "title": "CloudDev: Take Remote Screenshot",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.runRemoteMaestroFlow",
+        "title": "CloudDev: Run Maestro Flow on Remote Runner",
+        "category": "CloudDev"
+      },
+      {
+        "command": "clouddev.startCoordinator",
+        "title": "CloudDev: Start Runner Coordinator",
+        "category": "CloudDev"
       }
     ],
     "configuration": {
@@ -89,6 +142,16 @@
           "type": "string",
           "default": "http://localhost:%PORT%%PATH%",
           "description": "URL template for emulator (noVNC) preview. Use %PORT% for port and %PATH% for the path from .clouddev.json."
+        },
+        "clouddev.coordinator.port": {
+          "type": "number",
+          "default": 7800,
+          "description": "Port for the CloudDev runner coordinator service"
+        },
+        "clouddev.coordinator.externalUrl": {
+          "type": "string",
+          "default": "",
+          "description": "External URL for the coordinator (for devbox/cloud environments)"
         }
       }
     },

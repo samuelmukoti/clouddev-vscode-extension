@@ -12,7 +12,9 @@ import { StatusBarService } from './services/StatusBarService';
 import { EmulatorService } from './services/EmulatorService';
 import { WebviewManager } from './services/WebviewManager';
 import { MaestroService } from './services/MaestroService';
+import { RemoteRunnerService } from './services/RemoteRunnerService';
 import { registerCommands } from './commands';
+import { registerRemoteRunnerCommands } from './commands/remoteRunner';
 
 // Service instances
 let configService: ConfigService;
@@ -21,6 +23,7 @@ let statusBarService: StatusBarService;
 let emulatorService: EmulatorService;
 let webviewManager: WebviewManager;
 let maestroService: MaestroService;
+let remoteRunnerService: RemoteRunnerService;
 
 /**
  * Extension activation
@@ -44,12 +47,14 @@ export function activate(context: vscode.ExtensionContext): void {
     // Get workspace root for MaestroService
     const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath || '';
     maestroService = new MaestroService(terminalManager, workspaceRoot);
+    remoteRunnerService = new RemoteRunnerService();
 
     // Initialize services that need context
     configService.initialize(context);
     terminalManager.initialize(context);
     statusBarService.initialize(context);
     emulatorService.initialize(context);
+    remoteRunnerService.initialize(context);
 
     // Register commands
     registerCommands(
@@ -60,6 +65,9 @@ export function activate(context: vscode.ExtensionContext): void {
         emulatorService,
         maestroService
     );
+
+    // Register remote runner commands
+    registerRemoteRunnerCommands(context, remoteRunnerService, terminalManager);
 
     // Show welcome message on first activation
     showWelcomeMessage();
@@ -74,6 +82,7 @@ export function deactivate(): void {
     console.log('CloudDev Helper extension is deactivating');
 
     // Dispose services
+    remoteRunnerService?.dispose();
     maestroService?.dispose();
     emulatorService?.dispose();
     webviewManager?.dispose();
