@@ -1,7 +1,7 @@
 {
-  "name": "clouddev-helper",
-  "displayName": "CloudDev Helper",
-  "description": "Run and preview mobile apps (Flutter, Expo) on cloud-based Android emulators via noVNC with remote runner support",
+  "name": "devbox-cloud-tools",
+  "displayName": "Devbox Cloud Tools",
+  "description": "Cloud development toolkit for mobile apps - run Flutter/Expo on remote emulators, connect Mac/PC runners, and automate testing from anywhere",
   "version": "0.2.0",
   "publisher": "melivo",
   "author": {

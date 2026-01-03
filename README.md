@@ -1,14 +1,17 @@
-# CloudDev Helper
+# Devbox Cloud Tools
 
-Run and preview mobile apps (Flutter, Expo/React Native) on cloud-based Android emulators with remote runner support for iOS simulators.
+**Develop mobile apps from anywhere** - A cloud development toolkit that lets you run Flutter and Expo apps on remote Android emulators and iOS simulators, all accessible from your browser.
+
+Perfect for cloud-based development environments like [Devbox](https://devbox.sh), code-server, or any remote VS Code setup.
 
 ## Features
 
-- **Android Emulator via noVNC**: View and interact with Android emulators directly in VS Code
-- **Remote Runners**: Connect Mac/PC machines as remote runners for iOS and Android testing
-- **Maestro Test Automation**: Run Maestro flows locally or on remote runners
-- **Flutter & Expo Support**: One-click app launching for Flutter and Expo projects
+- **Browser-Based Emulator**: View and interact with Android emulators via noVNC directly in VS Code
+- **Remote Runners**: Connect your Mac/PC as remote runners for iOS simulators and Android emulators
+- **Maestro Test Automation**: Run automated UI tests locally or on remote devices
+- **Flutter & Expo Support**: One-click app launching for Flutter and Expo/React Native projects
 - **Screenshot Capture**: Take screenshots from local or remote devices
+- **Zero-Config Setup**: Magic link system for instant runner connection
 
 ## Getting Started
 
@@ -18,7 +21,7 @@ Run and preview mobile apps (Flutter, Expo/React Native) on cloud-based Android 
 
 ## Remote Runners
 
-CloudDev supports remote runners for offloading emulator/simulator workloads to dedicated machines:
+Offload emulator/simulator workloads to dedicated Mac/PC machines:
 
 1. Run `CloudDev: Start Runner Coordinator` to start the coordination service
 2. Run `CloudDev: Add Remote Runner` to get a setup link
